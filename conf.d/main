@@ -25,3 +25,7 @@ EOF
 chmod +x /etc/skel/.bashrc.d/rubygems
 cp /etc/skel/.bashrc.d/rubygems /root/.bashrc.d/rubygems
 
+# configure apache
+rm /etc/apache2/sites-available/default-ssl
+a2enmod rewrite
+rm /var/www/index.html
