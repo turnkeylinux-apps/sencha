@@ -1,0 +1,16 @@
+#!/bin/sh -ex
+
+SRC=/usr/local/src
+SDKROOT=/var/www/senchasdk
+SDKTOOLS=/usr/local/share/senchasdktools
+
+# unpack and install
+unzip $SRC/sencha-touch-*.zip -d $(dirname $SDKROOT)
+mv $(dirname $SDKROOT)/sencha-touch-* $SDKROOT
+rm $SRC/sencha-touch-*.zip
+chown -R root:root $SDKROOT
+
+chmod +x $SRC/SenchaSDKTools-*
+$SRC/SenchaSDKTools-* --unattendedmodeui none --mode unattended --prefix $SDKTOOLS
+rm $SRC/SenchaSDKTools-*
+
