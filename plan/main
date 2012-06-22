@@ -8,6 +8,9 @@ php5-curl
 openjdk-6-jdk
 openjdk-6-jre
 
+ruby
+rubygems
+
 curl
 unzip
 

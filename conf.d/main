@@ -14,3 +14,14 @@ chmod +x $SRC/SenchaSDKTools-*
 $SRC/SenchaSDKTools-* --unattendedmodeui none --mode unattended --prefix $SDKTOOLS
 rm $SRC/SenchaSDKTools-*
 
+# install compress (sass css) and add rubygems bin to path
+cd $SRC/gems
+gem install --local --no-rdoc --no-ri *.gem
+rm -rf $SRC/gems
+
+cat >/etc/skel/.bashrc.d/rubygems<<EOF
+PATH="/var/lib/gems/1.8/bin:\$PATH"
+EOF
+chmod +x /etc/skel/.bashrc.d/rubygems
+cp /etc/skel/.bashrc.d/rubygems /root/.bashrc.d/rubygems
+
