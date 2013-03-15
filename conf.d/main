@@ -1,23 +1,22 @@
 #!/bin/sh -ex
 
 SRC=/usr/local/src
-SDKROOT=/var/www/senchasdk
-SDKTOOLS=/usr/local/share/senchasdktools
+WEBROOT=/var/www/sencha
+S_CMD=/usr/local/share/senchacmd
 
 # unpack and install
-unzip $SRC/sencha-touch-*.zip -d $(dirname $SDKROOT)
-mv $(dirname $SDKROOT)/sencha-touch-* $SDKROOT
+unzip -q $SRC/sencha-touch-*.zip -d $(dirname $WEBROOT)
+mv $(dirname $WEBROOT)/touch-* $WEBROOT
 rm $SRC/sencha-touch-*.zip
-chown -R root:root $SDKROOT
+chown -R root:root $WEBROOT
 
-chmod +x $SRC/SenchaSDKTools-*
-$SRC/SenchaSDKTools-* --unattendedmodeui none --mode unattended --prefix $SDKTOOLS
-rm $SRC/SenchaSDKTools-*
+unzip -q $SRC/SenchaCmd-*-linux.run.zip -d $SRC
+$SRC/SenchaCmd-*-linux.run --unattendedmodeui none --mode unattended --prefix $S_CMD
+rm $SRC/SenchaCmd-*
 
-# install compress (sass css) and add rubygems bin to path
-cd $SRC/gems
-gem install --local --no-rdoc --no-ri *.gem
-rm -rf $SRC/gems
+[ "$FAB_HTTP_PROXY" ] && export HTTP_PROXY=$FAB_HTTP_PROXY
+gem install compass
+unset HTTP_PROXY
 
 cat >/etc/skel/.bashrc.d/rubygems<<EOF
 PATH="/var/lib/gems/1.8/bin:\$PATH"
