@@ -1,0 +1,32 @@
+#!/bin/bash -ex
+
+fatal() {
+    echo "fatal: $@" 1>&2
+    exit 1
+}
+
+dl() {
+    [ "$FAB_HTTP_PROXY" ] && PROXY="--proxy $FAB_HTTP_PROXY"
+    cd $2; curl -L -f -O $PROXY $1; cd -
+}
+
+SRC=/usr/local/src
+
+# sencha touch
+VERSION="sencha-touch-2.1.1-gpl.zip"
+dl http://cdn.sencha.io/touch/${VERSION} $SRC
+
+# sencha cmd
+case "$FAB_ARCH" in
+    i386)
+        VERSION="SenchaCmd-3.0.2.288-linux.run.zip"
+        ;;
+    amd64)
+        VERSION="SenchaCmd-3.0.2.288-linux-x64.run.zip"
+        ;;
+    *)
+        fatal "FAB_ARCH is not set or not recognized"
+        ;;
+esac
+dl http://cdn.sencha.io/cmd/${VERSION} $SRC
+
