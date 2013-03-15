@@ -52,7 +52,7 @@
 
                     <h2>Resources and references</h2>
                     <ul>
-                        <li><a href="/senchasdk">Sencha Touch documentation and examples</a>
+                        <li>Sencha Touch <a href="http://docs.sencha.com/touch/">documentation</a> and <a href="/sencha">local examples</a>
                         <li><a href="http://www.sencha.com">Official Sencha website</a></li>
                         <li><a href="http://www.turnkeylinux.org/sencha">TurnKey Sencha release notes</a></li>
                     </ul>
@@ -62,10 +62,10 @@
             <div id="start">
                 <div class="fragment-content">
                     <h2>Generating your first app</h2>
-                    <p>Read the <a href="/senchasdk/docs/#!/guide/getting_started">Sencha getting started guide and watch the movie</a>.</p>
+                    <p>Read the <a href="http://docs.sencha.com/touch/">Sencha getting started guide and watch the movie</a>.</p>
                     <p>To generate your first app as explained in the
                     guide, the correct path is:</p>
-<pre>cd /var/www/senchasdk
+<pre>cd /var/www/sencha
 sencha generate app GS ../GS</pre>
                     <p>You can then browse to your app here: <a href="http://<?php print $_SERVER{'HTTP_HOST'}; ?>/GS">http://<?php print $_SERVER{'HTTP_HOST'}; ?>/GS</a></p>
                     <h2>MySQL and PHP included</h2>
