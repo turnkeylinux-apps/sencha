@@ -10,8 +10,8 @@ mv $(dirname $WEBROOT)/touch-* $WEBROOT
 rm $SRC/sencha-touch-*.zip
 chown -R root:root $WEBROOT
 
-unzip -q $SRC/SenchaCmd-*-linux.run.zip -d $SRC
-$SRC/SenchaCmd-*-linux.run --unattendedmodeui none --mode unattended --prefix $S_CMD
+unzip -q $SRC/SenchaCmd-*.run.zip -d $SRC
+$SRC/SenchaCmd-*.run --unattendedmodeui none --mode unattended --prefix $S_CMD
 rm $SRC/SenchaCmd-*
 
 [ "$FAB_HTTP_PROXY" ] && export HTTP_PROXY=$FAB_HTTP_PROXY
