@@ -10,7 +10,7 @@ turnkey-sencha-12.1 (1) turnkey; urgency=low
 
   * Added phpsh (interative shell for PHP) and php5-cli (generically useful).
 
-  * Hardcoded component versions:
+  * Upstream source component versions:
 
     sencha-touch    2.1.1-gpl
     senchacmd       3.0.2.288-linux
