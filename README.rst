@@ -13,7 +13,7 @@ and on top of that:
 - Sencha configurations:
    
    - Installed from upstream source code to /var/www/senchasdk
-   - Includes Sencha Touch and Sencha SDK Tools.
+   - Includes Sencha Touch and SenchaCMD.
    - Includes compass for css sass (optimization, convenience).
    - Includes TurnKey Web Control panel with links to useful references,
      and relevant path information (convenience).
